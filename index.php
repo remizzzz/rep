@@ -1,42 +1,24 @@
 <?php
 
-class A {
-    function solve($b, $c): array {
-        if ($b === 0) {
-            throw new InvalidArgumentException("Equation doesn't exist");
-        }
+require_once 'core/EquationInterface.php';
+require_once 'core/LogAbstract.php';
+require_once 'core/LogInterface.php';
+require_once 'Remizov/LinearEquation.php';
+require_once 'Remizov/QuadraticEquation.php';
+require_once 'Remizov/MyLog.php';
 
-        $this->X = -($b / $c);
-        return [$this->X];
-    }
-    protected $X;
-}
+use Remizov\QuadraticEquation;
+use Remizov\MyLog as ml;
+
+ini_set("display_errors", 1);
+error_reporting(-1);
+
+$eq = new QuadraticEquation();
+$solutions = $eq->solve(4, -4, 0);
 
 
-class B extends A {
-    function solve($a, $b, $c): array {
-        if ($a === 0) {
-            return parent::solve($b, $c);
-        }
-
-        $discriminant = pow($b, 2) - 4 * $a * $c;
-
-        if ($discriminant < 0) {
-            throw new InvalidArgumentException("Invalid quadratic eq: discriminant is less than 0");
-        }
-
-        $this->X = [(-$b + sqrt($discriminant)) / 2 / $c,
-                    ($b + sqrt($discriminant)) / 2 / $c];
-
-        return $this->X;
-    }
-}
-
-$eq = new B();
-$solutions = $eq->solve(0,2, 4);
-
-foreach ($solutions as $s) {
-    echo $s . '  ';
-}
-
-?>
+ml::log("123");
+ml::log("13");
+ml::log("23");
+ml::write();
+?> 
