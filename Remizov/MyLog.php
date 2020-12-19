@@ -13,6 +13,12 @@ class MyLog extends LogAbstract implements LogInterface
         foreach ($this->log as $log) {
             echo $log . "\n";
         }
+        $d = new \DateTime();
+        $file = "./Log/". $d->format('d-m-Y\TH_i_s.u').".log";
+        if (!is_dir('./Log/')) {
+            mkdir("./Log/");
+        }
+        file_put_contents($file, implode("\n", $this->log));
     }
 
     public function _log($str)

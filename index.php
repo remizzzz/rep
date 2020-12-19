@@ -16,6 +16,7 @@ ini_set("display_errors", 1);
 error_reporting(-1);
 
 try {
+    ml::log("Programm ver. " . trim(file_get_contents("version")));
     echo "Enter value: A, B, C\n\r";
 
     $a = floatval(readline());
