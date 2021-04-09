@@ -1,0 +1,26 @@
+{
+  "name": "remizzzz/rep",
+  "type": "project",
+  "license": "MIT",
+  
+  "require": {
+    "remizzzz/remizzzz": "^1.0"
+  }, 
+  
+  "scripts":{
+	"post-install-cmd":[
+		"git symbolic-ref --short -q HEAD>version"
+		]
+  },
+  
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/remizzzz/remizzzz.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/rok9ru/trpo-core.git"
+    }
+  ]
+}

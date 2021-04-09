@@ -1,12 +1,6 @@
 <?php
 
-require_once 'core/EquationInterface.php';
-require_once 'core/LogAbstract.php';
-require_once 'core/LogInterface.php';
-require_once 'Remizov/MyLog.php';
-require_once 'Remizov/RemizovException.php';
-require_once 'Remizov/LinearEquation.php';
-require_once 'Remizov/QuadraticEquation.php';
+require_once "vendor/autoload.php";
 
 use Remizov\QuadraticEquation;
 use Remizov\MyLog as ml;
